@@ -2463,6 +2463,11 @@ PrefabInstance:
       propertyPath: firstPersonCam
       value: 
       objectReference: {fileID: 2097428550}
+    - target: {fileID: 4485518038978740142, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!20 &2097428550 stripped

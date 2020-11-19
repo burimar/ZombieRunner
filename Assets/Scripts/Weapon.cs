@@ -1,20 +1,28 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera firstPersonCam;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 3;
+    [SerializeField] ParticleSystem muzzleFlash;
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            PlayMuzzleFlash();
+            PerformRaycast();
         }
     }
 
-    private void Shoot()
+    private void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
+
+    private void PerformRaycast()
     {
         RaycastHit hit;
         if (Physics.Raycast(firstPersonCam.transform.position, firstPersonCam.transform.forward, out hit, range))
