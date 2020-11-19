@@ -2458,5 +2458,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 1866752e40ff44146ba167ab8e4037de,
         type: 2}
+    - target: {fileID: 2422947618697518897, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: firstPersonCam
+      value: 
+      objectReference: {fileID: 2097428550}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+--- !u!20 &2097428550 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 2097428549}
+  m_PrefabAsset: {fileID: 0}
