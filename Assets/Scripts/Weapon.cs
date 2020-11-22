@@ -1,13 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Camera firstPersonCam;
+    [SerializeField] Camera firstPersonCam = default;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 3;
-    [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ParticleSystem muzzleFlash = default;
+    [SerializeField] GameObject hitEffect = default;
 
     void Update()
     {
@@ -40,8 +39,7 @@ public class Weapon : MonoBehaviour
 
     private void ShowHitEffect(RaycastHit hit)
     {
-        ParticleSystem hitEffect = Instantiate(this.hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        hitEffect.Play();
+        GameObject hitEffect = Instantiate(this.hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(hitEffect, 0.1f);
     }
 }

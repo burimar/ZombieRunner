@@ -3,15 +3,17 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    [SerializeField] Transform target = default;
     [SerializeField] float chaseRange = 10;
 
     NavMeshAgent navMeshAgent;
+    Animator animator;
     float distanceToTarget = Mathf.Infinity;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -20,23 +22,28 @@ public class EnemyAI : MonoBehaviour
         if (distanceToTarget <= chaseRange)
         {
             EngageTarget();
+        } else
+        {
+            animator.SetTrigger("idle");
         }
     }
 
-    private void EngageTarget()
+    void EngageTarget()
     {
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
+            animator.SetBool("attack", false);
+            animator.SetTrigger("move");
             navMeshAgent.SetDestination(target.position);
         }
 
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
         {
-            Debug.Log("Attacking!!!");
+            animator.SetBool("attack", true);
         }
     }
 
-    private void OnDrawGizmosSelected()
+     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
