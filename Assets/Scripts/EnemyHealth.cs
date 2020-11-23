@@ -13,9 +13,4 @@ public class EnemyHealth: MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
 }
