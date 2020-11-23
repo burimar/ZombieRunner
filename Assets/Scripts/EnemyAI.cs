@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     Animator animator;
     float distanceToTarget = Mathf.Infinity;
+    bool isProvoked;
 
     void Start()
     {
@@ -17,16 +18,25 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void OnDamageTaken()
+    {
+        isProvoked = true;
+    }
+
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if (distanceToTarget <= chaseRange)
+        if (isProvoked)
         {
             EngageTarget();
-        } else
-        {
-            animator.SetTrigger("idle");
         }
+        else if (distanceToTarget <= chaseRange)
+        {
+            isProvoked = true;
+        }
+
+        // TODO: how is the zombie getting idle again?
+        // animator.SetTrigger("idle");
     }
 
     void EngageTarget()
@@ -53,7 +63,7 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, lookSpeed);
     }
 
-     void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);

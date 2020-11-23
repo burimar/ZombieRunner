@@ -6,8 +6,9 @@ public class EnemyHealth: MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        BroadcastMessage("OnDamageTaken");
+
+        if (0 >= (health -= damage))
         {
             Destroy(gameObject);
         }
