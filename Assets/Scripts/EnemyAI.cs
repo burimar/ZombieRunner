@@ -5,7 +5,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target = default;
     [SerializeField] float chaseRange = 10;
-    [SerializeField] float lookSpeed = 5;
+    [SerializeField] float lookSpeed = 0.05f;
 
     NavMeshAgent navMeshAgent;
     Animator animator;
