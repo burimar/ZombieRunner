@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class WeaponZoom : MonoBehaviour
 {
 
     [SerializeField] float zoomIn = 25;
+    [SerializeField] float zoomInMouseSensitivity = 1;
 
-    private Camera camera;
-    private float zoomOriginal = 0f;
-
+    private Camera fpsCamera;
+    private RigidbodyFirstPersonController fpsController;
+    private float zoomOriginal = -1;
+    private float mouseSensitivityOriginal = -1;
 
     void Start()
     {
-        camera = GetComponentInChildren<Camera>();
+        fpsCamera = GetComponentInChildren<Camera>();
+        fpsController = GetComponent<RigidbodyFirstPersonController>();
     }
 
     void Update()
@@ -24,15 +28,34 @@ public class WeaponZoom : MonoBehaviour
 
     private void ToggleZoom()
     {
-        if (zoomOriginal > 0f)
+        if (zoomOriginal == -1)
         {
-            camera.fieldOfView = zoomOriginal;
-            zoomOriginal = 0f;
-        } else
-        {
-            zoomOriginal = camera.fieldOfView;
-            camera.fieldOfView = zoomIn;
+            ZoomIn();
         }
+        else
+        {
+            ZoomOut();
+        }
+    }
+
+    private void ZoomIn()
+    {
+        zoomOriginal = fpsCamera.fieldOfView;
+        fpsCamera.fieldOfView = zoomIn;
+
+        mouseSensitivityOriginal = fpsController.mouseLook.XSensitivity;
+        fpsController.mouseLook.XSensitivity = zoomInMouseSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomInMouseSensitivity;
+    }
+
+    private void ZoomOut()
+    {
+        fpsCamera.fieldOfView = zoomOriginal;
+        zoomOriginal = -1;
+
+        fpsController.mouseLook.XSensitivity = mouseSensitivityOriginal;
+        fpsController.mouseLook.YSensitivity = mouseSensitivityOriginal;
+        mouseSensitivityOriginal = -1;
     }
 
 }
