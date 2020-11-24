@@ -1,34 +1,41 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera firstPersonCam = default;
     [SerializeField] float range = 100f;
-    [SerializeField] float damage = 3;
+    [SerializeField] float damage = 20;
+    [SerializeField] float timeBetweenShots = 0.5f;
     [SerializeField] ParticleSystem muzzleFlash = default;
     [SerializeField] GameObject hitEffect = default;
     [SerializeField] Ammo ammoSlot = default;
 
+    private bool canShoot = true;
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canShoot)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    private IEnumerator Shoot()
     {
+        canShoot = false;
         if (ammoSlot.HasAmmoLeft())
         {
             ammoSlot.ReduceAmmo();
             PlayMuzzleFlash();
             PerformRaycast();
+            yield return new WaitForSeconds(timeBetweenShots);
         }
         else
         {
             Debug.Log("No more ammo");
         }
+        canShoot = true;
     }
 
     private void PlayMuzzleFlash()

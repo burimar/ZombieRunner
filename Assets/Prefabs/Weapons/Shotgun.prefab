@@ -337,8 +337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCam: {fileID: 0}
-  range: 100
-  damage: 3
+  range: 30
+  damage: 50
+  timeBetweenShots: 2
   muzzleFlash: {fileID: 8558346357009032438}
   hitEffect: {fileID: 703631011887302398, guid: 0fa66db43a64b4b45a58c5518d4e7044,
     type: 3}

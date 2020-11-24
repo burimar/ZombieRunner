@@ -3303,6 +3303,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6860781558670022866, guid: 644f009c60d8ea6409c2956fcbf35bfc,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7585073030592883975, guid: 644f009c60d8ea6409c2956fcbf35bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
