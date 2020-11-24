@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 7585073030695390768}
   - component: {fileID: 633090548576805645}
   - component: {fileID: 8056495273638103492}
+  - component: {fileID: 7910435275687561410}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -373,6 +374,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48604f76f580b04e98ced8f2124108c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomIn: 25
+  zoomInMouseSensitivity: 1
+--- !u!114 &7910435275687561410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7585073030593114403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b23fe4368d75f4e9bfb1215a042afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoAmount: 10
 --- !u!1001 &4546129961615313393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -471,6 +487,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 703631011887302398, guid: 0fa66db43a64b4b45a58c5518d4e7044,
         type: 3}
+    - target: {fileID: 8643679422037827909, guid: ada2587319194f542957a8c2ae277cb9,
+        type: 3}
+      propertyPath: ammoSlot
+      value: 
+      objectReference: {fileID: 7910435275687561410}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
 --- !u!4 &2268105080090988119 stripped

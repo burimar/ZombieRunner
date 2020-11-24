@@ -7,13 +7,27 @@ public class Weapon : MonoBehaviour
     [SerializeField] float damage = 3;
     [SerializeField] ParticleSystem muzzleFlash = default;
     [SerializeField] GameObject hitEffect = default;
+    [SerializeField] Ammo ammoSlot = default;
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        if (ammoSlot.HasAmmoLeft())
+        {
+            ammoSlot.ReduceAmmo();
             PlayMuzzleFlash();
             PerformRaycast();
+        }
+        else
+        {
+            Debug.Log("No more ammo");
         }
     }
 
