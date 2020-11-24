@@ -3278,11 +3278,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624896754952512017, guid: 644f009c60d8ea6409c2956fcbf35bfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 633090548576805645, guid: 644f009c60d8ea6409c2956fcbf35bfc,
         type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 270744262}
+    - target: {fileID: 851740650535145245, guid: 644f009c60d8ea6409c2956fcbf35bfc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 851740650535145245, guid: 644f009c60d8ea6409c2956fcbf35bfc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268105080090825335, guid: 644f009c60d8ea6409c2956fcbf35bfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7585073030592883975, guid: 644f009c60d8ea6409c2956fcbf35bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
