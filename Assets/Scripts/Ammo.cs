@@ -2,17 +2,41 @@
 
 public class Ammo : MonoBehaviour
 {
+    [SerializeField] AmmoSlot[] ammoSlots;
 
-    [SerializeField] int ammoAmount = 10;
-
-    public bool HasAmmoLeft()
+    [System.Serializable]
+    private class AmmoSlot
     {
-        return ammoAmount > 0;
+        public AmmoType type;
+        public int amount;
     }
 
-    public void ReduceAmmo()
+    public bool HasAmmoLeft(AmmoType ammoType)
     {
-        ammoAmount--;
+        return GetAmmoSlot(ammoType).amount > 0;
     }
 
+    public void ReduceAmmo(AmmoType ammoType)
+    {
+        GetAmmoSlot(ammoType).amount--;
+    }
+
+    private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+    {
+        foreach (AmmoSlot slot in ammoSlots)
+        {
+            if (slot.type == ammoType)
+            {
+                return slot;
+            }
+        }
+
+        return null;
+    }
+
+}
+
+public enum AmmoType
+{
+    Bullet, Shell, Rocket
 }
