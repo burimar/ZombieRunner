@@ -2,13 +2,13 @@
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] AmmoSlot[] ammoSlots;
+    [SerializeField] AmmoSlot[] ammoSlots = default;
 
     [System.Serializable]
     private class AmmoSlot
     {
-        public AmmoType type;
-        public int amount;
+        public AmmoType type = default;
+        public int amount = default;
     }
 
     public bool HasAmmoLeft(AmmoType ammoType)

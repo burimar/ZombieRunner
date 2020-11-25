@@ -12,6 +12,11 @@ public class WeaponZoom : MonoBehaviour
     private float zoomOriginal = -1;
     private float mouseSensitivityOriginal = -1;
 
+    private void OnDisable()
+    {
+        if (zoomOriginal != -1) ToggleZoom();
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire2"))
