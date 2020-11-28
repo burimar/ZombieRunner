@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class Ammo : MonoBehaviour
     public bool HasAmmoLeft(AmmoType ammoType)
     {
         return GetAmmoSlot(ammoType).amount > 0;
+    }
+
+    internal void IncreaseAmmo(AmmoType ammoType, int ammoAmount)
+    {
+        GetAmmoSlot(ammoType).amount += ammoAmount;
     }
 
     public void ReduceAmmo(AmmoType ammoType)
