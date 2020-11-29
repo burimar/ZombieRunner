@@ -11,6 +11,10 @@ public class Ammo : MonoBehaviour
         public int amount = default;
     }
 
+    public int GetCurrentAmmo(AmmoType ammoType) {
+        return GetAmmoSlot(ammoType).amount;
+    }
+
     public bool HasAmmoLeft(AmmoType ammoType)
     {
         return GetAmmoSlot(ammoType).amount > 0;

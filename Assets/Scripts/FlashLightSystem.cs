@@ -17,6 +17,11 @@ public class FlashLightSystem : MonoBehaviour
         DecreaseLightIntensity();
     }
 
+    public void ReloadBattery()
+    {
+        flashLight.intensity = 10f;
+    }
+
     private void DecreaseLightIntensity()
     {
         if (flashLight.intensity > 0)
